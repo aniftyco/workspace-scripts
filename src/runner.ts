@@ -1,4 +1,4 @@
-import { concurrently, ConcurrentlyOptions } from 'concurrently';
+import concurrently, { ConcurrentlyOptions } from 'concurrently';
 import { readFileSync } from 'node:fs';
 import { join } from 'path';
 
@@ -9,9 +9,7 @@ export class Runner {
 
   constructor(
     private readonly cwd: string = process.cwd(),
-    private readonly options: Partial<ConcurrentlyOptions> = {
-      prefixColors: ['cyan', 'magenta', 'green', 'yellow', 'red'],
-    }
+    private readonly options: Partial<ConcurrentlyOptions> = {}
   ) {}
 
   get pkg(): PackageJson {
@@ -37,6 +35,10 @@ export class Runner {
       throw new Error('No workspaces found in package.json');
     }
 
-    return concurrently(commands, this.options);
+    concurrently(commands, {
+      prefixColors: ['cyan', 'magenta', 'green', 'yellow', 'red'],
+      ...this.options,
+      outputStream: process.stdout,
+    });
   }
 }
