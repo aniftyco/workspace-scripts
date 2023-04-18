@@ -1,0 +1,9 @@
+{
+  "extends": "@aniftyco/tsconfig",
+  "compilerOptions": {
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "exclude": ["node_modules", "dist", "bin"]
+}

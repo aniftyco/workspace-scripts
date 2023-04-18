@@ -1,0 +1,52 @@
+{
+  "name": "@aniftyco/workspace-scripts",
+  "description": "CLI scripts to help manage things in NiftyCo workspaces",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsc -p tsconfig.json --watch"
+  },
+  "bin": {
+    "runner": "bin/runner"
+  },
+  "engines": {
+    "npm": ">=v8.19.0",
+    "node": ">=16.18.0"
+  },
+  "author": {
+    "name": "Nifty Development, LLC",
+    "url": "https://aniftyco.com"
+  },
+  "contributors": [
+    {
+      "name": "Josh Manders",
+      "email": "josh@aniftyco.com"
+    }
+  ],
+  "prettier": "@aniftyco/prettier",
+  "eslintConfig": {
+    "extends": "nifty",
+    "ignorePatterns": [
+      "dist",
+      "bin"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "concurrently": "^8.0.1"
+  },
+  "devDependencies": {
+    "@aniftyco/prettier": "^0.1.0",
+    "@aniftyco/tsconfig": "^0.1.0",
+    "@types/node": "^16.18.23",
+    "eslint": "^8.38.0",
+    "eslint-config-nifty": "^3.3.2",
+    "prettier": "^2.8.7",
+    "type-fest": "^3.8.0",
+    "typescript": "^5.0.4"
+  }
+}

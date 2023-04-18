@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+const chalk = require('chalk');
+const { Runner } = require('../dist/runner');
+
+const argv = process.argv.slice(2);
+const runner = new Runner(process.cwd());
+
+runner.start(argv).catch((err) => {
+  const [_, ...stack] = err.stack.split('\n');
+
+  process.stderr.write(`❌ ${err.message}\n`);
+  if (argv.some((value) => value === '--verbose' || value === '-v')) {
+    process.stderr.write(chalk.dim(stack.join('\n')));
+  }
+  process.exit(1);
+});
