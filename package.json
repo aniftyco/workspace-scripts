@@ -1,7 +1,7 @@
 {
   "name": "@aniftyco/workspace-scripts",
   "description": "CLI scripts to help manage things in NiftyCo workspaces",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
