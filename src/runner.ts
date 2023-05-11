@@ -51,17 +51,11 @@ export class Runner {
   }
 
   async run(commands: string[]) {
-    const { stdout, stderr } = await execa('npm', ['run', ...commands, '--if-present', '--silent'], {
+    return execa('npm', ['run', ...commands, '--if-present', '--silent'], {
       cwd: this.cwd,
       env: this.env,
+      shell: true,
+      stdio: 'inherit',
     });
-
-    if (stdout) {
-      process.stdout.write(stdout);
-    }
-
-    if (stderr) {
-      process.stderr.write(stderr);
-    }
   }
 }
