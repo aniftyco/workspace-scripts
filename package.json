@@ -41,7 +41,8 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@aniftyco/prettier": "^0.1.0",
