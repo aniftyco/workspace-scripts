@@ -34,7 +34,7 @@ export class Runner {
 
   async start([command]: string[]) {
     const commands = ((this.pkg.workspaces || []) as string[]).map((workspace) => ({
-      command: `npm run ${command} -w ${workspace} --if-present`,
+      command: `npm run ${command} -w ${workspace} --if-present --silent`,
       name: workspace,
       env: this.env,
     }));
@@ -51,7 +51,7 @@ export class Runner {
   }
 
   async run(commands: string[]) {
-    const { stdout, stderr } = await execa('npm', ['run', ...commands, '--if-present'], {
+    const { stdout, stderr } = await execa('npm', ['run', ...commands, '--if-present', '--silent'], {
       cwd: this.cwd,
       env: this.env,
     });
