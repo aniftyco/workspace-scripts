@@ -9,6 +9,7 @@
     "prepublishOnly": "tsc -p tsconfig.json"
   },
   "bin": {
+    "run": "bin/run",
     "runner": "bin/runner"
   },
   "files": [
