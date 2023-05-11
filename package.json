@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "tsc -p tsconfig.json --watch"
+    "start": "tsc -p tsconfig.json --watch",
+    "prepublishOnly": "tsc -p tsconfig.json"
   },
   "bin": {
     "runner": "bin/runner"
