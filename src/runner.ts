@@ -1,5 +1,6 @@
 import concurrently, { ConcurrentlyOptions } from 'concurrently';
 import * as dotenv from 'dotenv';
+import execa from 'execa';
 import { readFileSync } from 'node:fs';
 import { join } from 'path';
 
@@ -47,5 +48,20 @@ export class Runner {
       ...this.options,
       outputStream: process.stdout,
     });
+  }
+
+  async run(commands: string[]) {
+    const { stdout, stderr } = await execa('npm', ['run', ...commands, '--if-present'], {
+      cwd: this.cwd,
+      env: this.env,
+    });
+
+    if (stdout) {
+      process.stdout.write(stdout);
+    }
+
+    if (stderr) {
+      process.stderr.write(stderr);
+    }
   }
 }
